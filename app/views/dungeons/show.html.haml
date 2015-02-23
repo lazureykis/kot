@@ -1,2 +1,7 @@
-%h3= @dungeon.title
-.image= image_tag @dungeon.image.thumb('400x200#').url if @dungeon.image_stored?
+.dungeon
+  %h3= @dungeon.title
+  %p.center
+    = image_tag @dungeon.image.thumb('400x200#').url if @dungeon.image_stored?
+    %br
+    - if @dungeon.description.present?
+      = markdown(@dungeon.description)

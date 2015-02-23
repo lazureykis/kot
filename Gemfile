@@ -19,6 +19,8 @@ gem 'omniauth-facebook'
 gem 'pg'
 gem 'puma'
 gem 'dragonfly'
+gem 'redcarpet'
+
 group :development do
   gem 'mechanize'
   gem 'better_errors'

@@ -7,5 +7,5 @@
     .row.dungeons-row
       - group.each do |dungeon|
         .col-md-4
-          %a{target: :_blank, href: dungeon_path(dungeon)}
+          %a{href: dungeon_path(dungeon)}
             = image_tag dungeon.image.thumb('300x200').url
