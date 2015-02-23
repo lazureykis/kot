@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20150223134934) do
 
   create_table "dungeons", force: :cascade do |t|
     t.string   "image_uid",                   null: false
-    t.string   "image_name",                  null: false
+    t.string   "image_name"
     t.integer  "level"
     t.text     "description"
-    t.string   "author_name",                 null: false
+    t.string   "author_name"
     t.boolean  "approved",    default: false, null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
