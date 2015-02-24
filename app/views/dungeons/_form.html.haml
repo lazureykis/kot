@@ -16,6 +16,8 @@
       = f.label :image, class: 'control-label'
       .controls
         = f.file_field :image, class: 'input-block-level'
+        - 3.times do
+          %input.input-block-level{type: :file, name: 'images[]'}
     .control-group
       .controls
         = f.submit nil, class: 'btn btn-primary'

@@ -1,6 +1,8 @@
 class Dungeon < ActiveRecord::Base
   dragonfly_accessor :image
 
+  has_many :photos, class_name: 'AdditionalPhoto'
+
   scope :by_rating, -> { order('(upvotes - downvotes) DESC') }
   scope :latest, -> { order('created_at DESC') }
 

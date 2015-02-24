@@ -8,7 +8,10 @@
       %h3= dungeon.title
     %p
       %a{target: :_blank, href: dungeon.image.url}
-        = image_tag dungeon.image.thumb('500x300#').url if dungeon.image_stored?
+        = image_tag dungeon.image.thumb('400x300#').url if dungeon.image_stored?
+      - dungeon.photos.each do |photo|
+        %a{target: :_blank, href: photo.image.url}
+          = image_tag photo.image.thumb('400x300#').url if photo.image_stored?
       - if dungeon.description.present?
         .description.text-center
           = markdown(dungeon.description)

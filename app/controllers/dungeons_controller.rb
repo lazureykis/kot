@@ -19,6 +19,7 @@ class DungeonsController < ApplicationController
 
   def create
     @dungeon = Dungeon.new(dungeon_params)
+    build_photos
 
     if @dungeon.save!
       redirect_to dungeon_path(@dungeon)
@@ -43,6 +44,12 @@ class DungeonsController < ApplicationController
     session[:votes] ||= []
     session[:votes].push(@dungeon.id)
     redirect_to :back
+  end
+
+  def build_photos
+    params[:images].to_a.each do |image|
+      @dungeon.photos << AdditionalPhoto.new(image: image, dungeon: @dungeon)
+    end
   end
 
   def dungeon_params
