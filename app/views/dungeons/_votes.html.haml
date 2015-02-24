@@ -1,0 +1,15 @@
+.votes.text-center
+  - if can_vote?(dungeon)
+    = link_to upvote_dungeon_path(dungeon), method: :post do
+      %span.up.glyphicon.glyphicon-arrow-up
+      = dungeon.upvotes
+
+    = link_to downvote_dungeon_path(dungeon), method: :post do
+      %span.down.glyphicon.glyphicon-arrow-down
+      = dungeon.downvotes
+  - else
+    %span.up.glyphicon.glyphicon-arrow-up
+    = dungeon.upvotes
+
+    %span.down.glyphicon.glyphicon-arrow-down
+    = dungeon.downvotes

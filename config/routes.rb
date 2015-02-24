@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   root to: 'dungeons#index'
-  resources :dungeons
+  resources :dungeons do
+    member do
+      post :upvote
+      post :downvote
+    end
+  end
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin

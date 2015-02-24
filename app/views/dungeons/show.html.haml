@@ -1,8 +1,1 @@
-.dungeon
-  %h3= @dungeon.title
-  %p.center
-    %a{target: :_blank, href: @dungeon.image.url}
-      = image_tag @dungeon.image.thumb('400x200#').url if @dungeon.image_stored?
-    %br
-    - if @dungeon.description.present?
-      = markdown(@dungeon.description)
+= render @dungeon

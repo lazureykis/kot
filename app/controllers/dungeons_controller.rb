@@ -1,10 +1,11 @@
 class DungeonsController < ApplicationController
+  before_action :find_dungeon, only: %i(show upvote downvote)
+
   def index
-    @dungeons = Dungeon.take(100)
+    @dungeons = Dungeon.by_rating.take(100)
   end
 
   def show
-    @dungeon = Dungeon.find(params[:id])
   end
 
   def new
@@ -21,9 +22,29 @@ class DungeonsController < ApplicationController
     end
   end
 
+  def upvote
+    @dungeon.upvote!
+    after_vote
+  end
+
+  def downvote
+    @dungeon.downvote!
+    after_vote
+  end
+
   private
+
+  def after_vote
+    session[:votes] ||= []
+    session[:votes].push(@dungeon.id)
+    redirect_to :back
+  end
 
   def dungeon_params
     params.require(:dungeon).permit(:level, :description, :author_name, :image)
+  end
+
+  def find_dungeon
+    @dungeon = Dungeon.find(params[:id])
   end
 end
