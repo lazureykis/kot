@@ -24,11 +24,12 @@ gem 'redcarpet'
 group :development do
   gem 'mechanize'
   gem 'better_errors'
-  gem 'capistrano', '~> 3.0.1'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails', '~> 1.1.0'
-  gem 'capistrano-rails-console'
-  gem 'capistrano-rvm', '~> 0.1.1'
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano3-puma', require: false
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'

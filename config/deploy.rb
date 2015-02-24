@@ -16,6 +16,8 @@ set :log_level, :info
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 5
 
+set :rvm_type, :system
+
 namespace :deploy do
 
   desc 'Restart application'
