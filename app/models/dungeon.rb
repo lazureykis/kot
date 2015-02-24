@@ -15,7 +15,10 @@ class Dungeon < ActiveRecord::Base
   end
 
   def title
-    [level, author_name.presence].compact.join(' : ')
+    [
+      [level, description.presence].compact.join(': '),
+      author_name.presence
+    ].compact.join(' by ')
   end
 
   private

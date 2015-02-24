@@ -1,8 +1,8 @@
 - if local_assigns[:short]
-  %a{href: dungeon.image.url, data: {lightbox: "dungeon-#{dungeon.id}"}}
+  %a{href: dungeon.image.url, data: {lightbox: "dungeon-#{dungeon.id}", title: dungeon.title}}
     = image_tag dungeon.image.thumb('300x200>').url
   - dungeon.photos.each do |photo|
-    %a{href: photo.image.url, data: {lightbox: "dungeon-#{dungeon.id}"}}
+    %a{href: photo.image.url, data: {lightbox: "dungeon-#{dungeon.id}", title: dungeon.title}}
 - else
   .dungeons-row
     - if dungeon.title.present?
