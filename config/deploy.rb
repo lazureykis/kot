@@ -1,5 +1,5 @@
 set :application, 'kot'
-set :repo_url, 'git@bitbucket.org:lazureykis/dungeons.git'
+set :repo_url, 'git@github.com:lazureykis/kot.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
