@@ -5,6 +5,11 @@ class DungeonsController < ApplicationController
     @dungeons = Dungeon.by_rating.take(100)
   end
 
+  def latest
+    @dungeons = Dungeon.latest.take(100)
+    render action: :index
+  end
+
   def show
   end
 

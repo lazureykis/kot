@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   root to: 'dungeons#index'
+
   resources :dungeons do
+    collection do
+      get :latest
+    end
+
     member do
       post :upvote
       post :downvote

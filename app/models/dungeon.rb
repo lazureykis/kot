@@ -2,6 +2,7 @@ class Dungeon < ActiveRecord::Base
   dragonfly_accessor :image
 
   scope :by_rating, -> { order('(upvotes - downvotes) DESC') }
+  scope :latest, -> { order('created_at DESC') }
 
   def upvote!
     increment_by_sql(:upvotes)
