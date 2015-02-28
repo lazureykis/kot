@@ -24,3 +24,20 @@
             %li.divider
             - Dungeon::LEVELS.each do |num, title|
               %li{class: (:active if @level == num)}= link_to("[#{num}] #{title}", url_for(controller: :dungeons, action: (@mode == :latest ? :latest : :index), level: num))
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'Add your base', new_dungeon_path
+      /   %a{:href => "#"} Link
+      / %li.dropdown
+      /   %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+      /     Dropdown
+      /     %span.caret
+      /   %ul.dropdown-menu{:role => "menu"}
+      /     %li
+      /       %a{:href => "#"} Action
+      /     %li
+      /       %a{:href => "#"} Another action
+      /     %li
+      /       %a{:href => "#"} Something else here
+      /     %li.divider
+      /     %li
+      /       %a{:href => "#"} Separated link
