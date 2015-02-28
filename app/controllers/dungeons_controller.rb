@@ -2,11 +2,11 @@ class DungeonsController < ApplicationController
   before_action :find_dungeon, only: %i(show upvote downvote)
 
   def index
-    @dungeons = Dungeon.by_rating.take(100)
+    @dungeons = Dungeon.includes(:photos).by_rating.take(100)
   end
 
   def latest
-    @dungeons = Dungeon.latest.take(100)
+    @dungeons = Dungeon.includes(:photos).latest.take(100)
     render action: :index
   end
 
