@@ -1,9 +1,11 @@
 .row
+  - if @dungeon.errors.present?
+    %p.error= @dungeon.errors.full_messages.to_sentence
   = form_for(@dungeon, html: {multipart: true, class: 'form-horizontal'}) do |f|
     .control-group
       = f.label :level, class: 'control-label'
       .controls
-        = f.text_field :level
+        = f.select :level, Dungeon::LEVELS.map {|k,v| ["[#{k}] #{v}", k]}
     .control-group
       = f.label :description, class: 'control-label'
       .controls

@@ -1,4 +1,9 @@
 class Dungeon < ActiveRecord::Base
+  extend Dragonfly::Model::Validations
+  validates_presence_of :image
+  validates_size_of :image, maximum: 10.megabytes
+  validates_property :mime_type, of: :image, in: %w(image/jpeg image/png)
+
   dragonfly_accessor :image
 
   has_many :photos, class_name: 'AdditionalPhoto'
@@ -13,6 +18,14 @@ class Dungeon < ActiveRecord::Base
   def downvote!
     increment_by_sql(:downvotes)
   end
+
+  LEVELS = {
+    1 => 'Yellow',
+    2 => 'Green',
+    3 => 'Blue',
+    4 => 'Pine green',
+    5 => 'Red'
+  }
 
   def title
     [

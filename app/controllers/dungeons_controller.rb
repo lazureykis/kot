@@ -21,7 +21,7 @@ class DungeonsController < ApplicationController
     @dungeon = Dungeon.new(dungeon_params)
     build_photos
 
-    if @dungeon.save!
+    if @dungeon.save
       redirect_to dungeon_path(@dungeon)
     else
       render action: :new
