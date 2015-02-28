@@ -21,6 +21,8 @@ gem 'puma'
 gem 'dragonfly'
 gem 'redcarpet'
 
+gem 'rails_admin'
+
 group :development do
   gem 'mechanize'
   gem 'better_errors'
