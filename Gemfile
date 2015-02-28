@@ -18,8 +18,8 @@ gem 'omniauth-facebook'
 gem 'pg'
 gem 'puma'
 gem 'dragonfly'
+gem 'rack-cache', require: 'rack/cache'
 gem 'redcarpet'
-
 gem 'rails_admin'
 
 group :development do
@@ -56,4 +56,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
