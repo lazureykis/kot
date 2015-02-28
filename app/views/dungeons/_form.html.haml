@@ -5,7 +5,7 @@
     .control-group
       = f.label :level, class: 'control-label'
       .controls
-        = f.select :level, Dungeon::LEVELS.map {|k,v| ["[#{k}] #{v}", k]}
+        = f.select :level, Dungeon::LEVELS.map { |num, title| ["[#{num}] #{title}", num] }
     .control-group
       = f.label :description, class: 'control-label'
       .controls
