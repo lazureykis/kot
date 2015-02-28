@@ -4,7 +4,8 @@ module ApplicationHelper
     raw Thread.current[:markdown].render(text)
   end
 
-  def can_vote?(dungeon)
-    !session[:votes].to_a.include?(dungeon.id)
+  def current_page(page_name = nil, *args)
+    @current_page = page_name if page_name
+    @current_page
   end
 end

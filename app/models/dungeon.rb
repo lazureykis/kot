@@ -8,7 +8,7 @@ class Dungeon < ActiveRecord::Base
 
   has_many :photos, class_name: 'AdditionalPhoto'
 
-  scope :by_rating, -> { order('(upvotes - downvotes) DESC') }
+  scope :best, -> { order('(upvotes - downvotes) DESC') }
   scope :latest, -> { order('created_at DESC') }
 
   def upvote!

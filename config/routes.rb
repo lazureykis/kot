@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   resources :dungeons do
     collection do
-      get :latest
+      get "latest/(:level)", action: :latest, as: :latest
+      get "best/(:level)", action: :index, as: :best
     end
 
     member do

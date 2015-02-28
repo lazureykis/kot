@@ -1,13 +1,15 @@
 class DungeonsController < ApplicationController
   before_action :find_dungeon, only: %i(show upvote downvote)
+  LIMIT = 100
 
   def index
-    @dungeons = Dungeon.includes(:photos).by_rating.take(100)
+    @mode = :best
+    render_dungeons
   end
 
   def latest
-    @dungeons = Dungeon.includes(:photos).latest.take(100)
-    render action: :index
+    @mode = :latest
+    render_dungeons
   end
 
   def show
@@ -58,5 +60,19 @@ class DungeonsController < ApplicationController
 
   def find_dungeon
     @dungeon = Dungeon.find(params[:id])
+  end
+
+  def find_level
+    @level = params[:level].present? ? params[:level].to_i : nil
+  end
+
+  def render_dungeons
+    find_level
+
+    @dungeons = Dungeon.includes(:photos).send(@mode)
+    @dungeons = @dungeons.where(level: @level) if @level.present?
+    @fungeons = @dungeons.take(LIMIT)
+
+    render action: :index
   end
 end
