@@ -17,6 +17,8 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 set :keep_releases, 5
 
 set :nginx_server_name, 'kot.lazureykis.me'
+set :puma_init_active_record, true
+set :puma_preload_app, true
 
 set :rvm_type, :system
 
