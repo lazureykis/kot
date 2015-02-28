@@ -10,7 +10,6 @@ gem 'therubyracer'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-  gem 'spring'
 end
 gem 'bootstrap-sass'
 gem 'haml-rails'
@@ -42,7 +41,6 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
-  gem 'spring-commands-rspec'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -58,3 +56,4 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
