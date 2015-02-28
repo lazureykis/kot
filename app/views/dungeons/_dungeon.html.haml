@@ -1,8 +1,5 @@
 - if local_assigns[:short]
-  %a{href: dungeon.image.url, data: {lightbox: "dungeon-#{dungeon.id}", title: dungeon.title}}
-    = image_tag dungeon.image.thumb('300x200>').url
-  - dungeon.photos.each do |photo|
-    %a{href: photo.image.url, data: {lightbox: "dungeon-#{dungeon.id}", title: dungeon.title}}
+  %a{href: dungeon_path(dungeon)}= image_tag dungeon.image.thumb('300x200>').url
   = render partial: 'votes', locals: { dungeon: dungeon }
 - else
   .dungeons-row
@@ -19,3 +16,4 @@
           = markdown(dungeon.description)
 
     = render partial: 'votes', locals: { dungeon: dungeon }
+    = render partial: 'comments', locals: { dungeon: dungeon }

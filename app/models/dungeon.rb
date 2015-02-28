@@ -27,11 +27,15 @@ class Dungeon < ActiveRecord::Base
     5 => 'Red'
   }
 
+  def level_name
+    return unless LEVELS.key?(level)
+    "[#{level}] #{LEVELS[level]}"
+  end
+
   def title
-    [
-      [level, description.presence].compact.join(': '),
-      author_name.presence
-    ].compact.join(' by ')
+    t = level_name.to_s
+    t += ' by ' + author_name if author_name.present?
+    t
   end
 
   private
