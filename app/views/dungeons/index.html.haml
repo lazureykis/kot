@@ -1,8 +1,9 @@
 - current_page(:dungeons)
 
 - if @dungeons.empty?
-  %p Nothing here.
-  %p= link_to 'Add your own!', new_dungeon_path
+  .row.dungeons-row
+    %h3 Nothing here.
+    %p= link_to 'Add your own!', new_dungeon_path
 - else
   - @dungeons.in_groups_of(3, false) do |group|
     .row.dungeons-row
